@@ -1,0 +1,60 @@
+Algoritmo EncuestaPlataformas
+	Definir codigo Como Entero
+		Definir opcion Como Entero
+		Definir contAndroid, contIOS Como Entero
+		Definir respuesta Como Caracter
+		
+		contAndroid <- 0
+		contIOS <- 0
+		respuesta <- "S"
+		
+		Mientras respuesta = "S" O respuesta = "s" Hacer
+			Limpiar Pantalla
+			Escribir "--- ENCUESTA: PLATAFORMA DE DESARROLLO MÓVIL ---"
+			Escribir "Ingrese el código del estudiante:"
+			Leer codigo
+			
+			Escribir "Seleccione la plataforma de su preferencia:"
+			Escribir "1. Android"
+			Escribir "2. iOS"
+			Escribir "Ingrese su opción (1 o 2):"
+			Leer opcion
+			
+			// Evaluar la opción ingresada
+			Segun opcion Hacer
+				1:
+					contAndroid <- contAndroid + 1
+					Escribir "¡Voto registrado con éxito para Android!"
+				2:
+					contIOS <- contIOS + 1
+					Escribir "¡Voto registrado con éxito para iOS!"
+				De Otro Modo:
+					Escribir "Opción no válida. La plataforma elegida es diferente a Android o iOS, por lo tanto no será tenida en cuenta en los resultados."
+			FinSegun
+			
+			Escribir ""
+			Escribir "¿Desea registrar el voto de otro estudiante? (S/N):"
+			Leer respuesta
+		FinMientras
+		
+		// Mostrar resultados finales al cerrar la encuesta
+		Limpiar Pantalla
+		Escribir "--- RESULTADOS FINALES DE LA ENCUESTA ---"
+		Escribir "Total de votos para Android: ", contAndroid
+		Escribir "Total de votos para iOS: ", contIOS
+		Escribir ""
+		
+		// Determinar ganador o empate según las reglas del problema
+		Si contAndroid > contIOS Entonces
+			Escribir "La plataforma elegida es: ANDROID (mayor votación)."
+		SiNo
+			Si contIOS > contAndroid Entonces
+				Escribir "La plataforma elegida es: iOS (mayor votación)."
+			SiNo
+				Escribir "Se presenta un empate en la cantidad de votos, se usará otro mecanismo de elección[cite: 4]."
+			FinSi
+		FinSi
+		
+		Escribir ""
+		Escribir "¡Proceso de encuesta finalizado!"	
+FinAlgoritmo

@@ -1,0 +1,39 @@
+Algoritmo NumeroPerfecto
+		Definir num, suma, i Como Entero
+		Definir respuesta Como Caracter
+		
+		respuesta <- "S"
+		
+		Mientras respuesta = "S" O respuesta = "s" Hacer
+			Limpiar Pantalla
+			Escribir "--- VERIFICADOR DE NÚMEROS PERFECTOS ---"
+			Escribir "Ingrese un número entero positivo:"
+			Leer num
+			
+			Si num > 0 Entonces
+				suma <- 0
+				
+				// Encontrar y sumar los divisores propios positivos
+				Para i <- 1 Hasta num - 1 Hacer
+					Si num MOD i = 0 Entonces
+						suma <- suma + i
+					FinSi
+				FinPara
+				
+				// Comprobar si el número es perfecto (igual a la suma de sus divisores propios)
+				Si suma = num Entonces
+					Escribir "El número ", num, " SÍ es un número perfecto."
+				SiNo
+					Escribir "El número ", num, " NO es un número perfecto."
+				FinSi
+			SiNo
+				Escribir "Por favor, ingrese un número entero positivo válido."
+			FinSi
+			
+			Escribir ""
+			Escribir "¿Desea evaluar otro número? (S/N):"
+			Leer respuesta
+		FinMientras
+		
+		Escribir "¡Programa finalizado!"
+FinAlgoritmo

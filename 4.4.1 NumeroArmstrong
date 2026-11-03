@@ -1,0 +1,47 @@
+Algoritmo NumeroArmstrong
+		Definir num, temp, n, digito, suma Como Entero
+		Definir respuesta Como Caracter
+		
+		respuesta <- "S"
+		
+		Mientras respuesta = "S" O respuesta = "s" Hacer
+			Limpiar Pantalla
+			Escribir "--- VERIFICADOR DE NÚMEROS DE ARMSTRONG ---"
+			Escribir "Ingrese un número entero positivo en base 10:"
+			Leer num
+			
+			Si num > 0 Entonces
+				// 1. Contar la cantidad de cifras o dígitos del número (n)
+				temp <- num
+				n <- 0
+				Mientras temp > 0 Hacer
+					temp <- trunc(temp / 10)
+					n <- n + 1
+				FinMientras
+				
+				// 2. Calcular la suma de cada cifra elevada a la potencia n
+				temp <- num
+				suma <- 0
+				Mientras temp > 0 Hacer
+					digito <- temp MOD 10
+					suma <- suma + (digito ^ n)
+					temp <- trunc(temp / 10)
+				FinMientras
+				
+				// 3. Informar si el resultado es o no un número de Armstrong
+				Si suma = num Entonces
+					Escribir "El número ", num, " SÍ es un número de Armstrong."
+				SiNo
+					Escribir "El número ", num, " NO es un número de Armstrong."
+				FinSi
+			SiNo
+				Escribir "Por favor, ingrese un número entero positivo válido."
+			FinSi
+			
+			Escribir ""
+			Escribir "¿Desea evaluar otro número? (S/N):"
+			Leer respuesta
+		FinMientras
+		
+		Escribir "¡Programa finalizado!"
+FinAlgoritmo
